@@ -28,7 +28,6 @@ const login = async (req, res) => {
           userId: result.id,
           role: result.role_id,
         };
-        console.log("here");
 
         const options = {
           expiresIn: "120m",
