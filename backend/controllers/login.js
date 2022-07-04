@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const connection = require("../database/db");
-
+const connection = require("../models/db");
 // This function checks user login credentials
 const login = (req, res) => {
   const password = req.body.password;

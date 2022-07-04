@@ -1,12 +1,12 @@
 const express = require("express");
 const { register, updateUserById } = require("../controllers/register");
-const userRouter = express.Router();
-const { authentication } = require("../middleware/authentication");
+const registerRouter = express.Router();
+const { authentication } = require("../middlewares/authentication");
 
 // -------------------------
-userRouter.post("/", register);
-userRouter.put("/", authentication, updateUserById);
+registerRouter.post("/", register);
+registerRouter.put("/", authentication, updateUserById);
 
 // -------------------------
 
-module.exports = userRouter;
+module.exports = registerRouter;

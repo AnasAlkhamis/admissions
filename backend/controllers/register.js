@@ -1,31 +1,38 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
-const connection = require("../database/db");
+const connection = require("../models/db");
+
 const SECRET = process.env.SALT;
 
 // This function to register(new user) .
 const register = async (req, res) => {
-  const { user_name, email, password, role_id } = req.body;
+  try {
+    const { full_name, email, password, image, phone_Number } = req.body;
+    const role_id = 1;
+    const hashingPass = await bcrypt.hash(password, 7);
 
-  const hashingPass = await bcrypt.hash(password, 7);
-
-  const query = `INSERT INTO users (user_name, email, password, role_id) VALUES (?,?,?,?)`;
-  const data = [user_name, email, hashingPass, role_id];
-
-  connection.query(query, data, (err, result) => {
-    if (err) {
-      return res.status(409).json({
-        success: false,
-        message: "server Error",
-        err: err,
+    const query = `INSERT INTO users (full_name,
+      email,
+      password,
+      image,
+      phone_Number,
+      role_id) VALUES (?,?,?,?,?,?)`;
+    const data = [full_name, email, hashingPass, image, phone_Number, role_id];
+    const result = await connection.promise().query(query, data);
+    if (result[0]) {
+      res.status(200).json({
+        success: true,
+        message: "Success user Added",
+        result: result[0],
       });
-    }
-    res.status(200).json({
-      success: true,
-      message: "Success user Added",
-      results: result,
+    } else throw Error;
+  } catch (error) {
+    res.status(409).json({
+      success: false,
+      message: "server Error",
+      error,
     });
-  });
+  }
 };
 
 // This function to update user information by user id
