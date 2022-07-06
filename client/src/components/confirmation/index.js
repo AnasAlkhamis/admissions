@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import { TiInputChecked } from "react-icons/ti";
 const Confirm = ({ show, setShow, email, addNewUser, code }) => {
   const [verifyCode, setVerifyCode] = useState("");
   const handleSubmit = () => {
@@ -12,22 +13,22 @@ const Confirm = ({ show, setShow, email, addNewUser, code }) => {
     <>
       <div className="popup_box">
         <div className="poup_form">
-          <h3>confirm your code sended to your email: {email} </h3>
+          <TiInputChecked className="icon" />
           <div className="but_box">
-            <div className="inputs">
+            <form className="inputs" onSubmit={handleSubmit}>
               <input
+                pattern=".{6}"
+                maxLength="6"
                 required
                 type="text"
-                maxLength="6"
+                title="6 characters"
+                // value="P8"
                 onChange={(e) => {
                   setVerifyCode(e.target.value);
                 }}
               />
-            </div>
-
-            <button onClick={handleSubmit} className="cancel">
-              Confirm
-            </button>
+              <button className="confirm">Confirm</button>
+            </form>
           </div>
         </div>
       </div>

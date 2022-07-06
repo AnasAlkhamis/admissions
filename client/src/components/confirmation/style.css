@@ -2,50 +2,95 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.173);
+  background-color: #fff;
   top: 0;
   left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: popup 0.3s;
 }
 .poup_form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 50%;
-  height: 40%;
-  background-color: rgba(0, 0, 0, 0.614);
-  animation: popup 0.3s;
+  height: 80%;
+  background-color: rgba(11, 103, 217, 0.878);
+  border-radius: 20px;
+  box-shadow: 0 0 5px black;
 }
 @keyframes popup {
   0% {
-    transform: scale(0);
+    transform: translateX(-1000px);
   }
-  75% {
-    transform: scale(1.2);
-  }
+
   100% {
-    transform: scale(1);
+    transform: translateX(0);
   }
 }
-.poup_form h3 {
-  color: rgb(208, 74, 47);
-  font-size: 2rem;
+
+.icon {
+  font-size: 150px;
+  color: #fff;
+  background-color: rgb(148, 231, 24);
+  border-radius: 50%;
 }
 .inputs {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.inputs input {
-  width: 150px;
-  height: 40px;
-  text-align: center;
-  font-size: 2rem;
-  
-}
 .inputs input:focus {
   outline: none;
+}
+.inputs .confirm {
+  padding: 0.5rem 2.7rem;
+  font-size: 1rem;
+  background-color: rgb(148, 231, 24);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.inputs input {
+  background-image: linear-gradient(
+    to right,
+    #ddd,
+    #ddd 1.5ch,
+    transparent 1.5ch,
+    transparent 2ch,
+    #ddd 2ch,
+    #ddd 3.5ch,
+    transparent 3.5ch,
+    transparent 4ch,
+    #ddd 4ch,
+    #ddd 5.5ch,
+    transparent 5.5ch,
+    transparent 6ch,
+    #ddd 6ch,
+    #ddd 7.5ch,
+    transparent 7.5ch,
+    transparent 8ch,
+    #ddd 8ch,
+    #ddd 9.5ch,
+    transparent 9.5ch,
+    transparent 10ch,
+    #ddd 10ch,
+    #ddd 11.5ch,
+    transparent 11.5ch
+  );
+  background-size: 12ch 0.2ch;
+  background-repeat: no-repeat;
+  background-position: calc(1.2em - 1ch) 2.25em;
+  font-family: monospace;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid rgba(250, 250, 250, 0.625);
+  border-radius: 5px;
+  width: calc(2.5ch * 6);
+  text-transform: uppercase;
+  letter-spacing: 1ch;
 }
