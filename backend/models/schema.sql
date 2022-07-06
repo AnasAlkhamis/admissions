@@ -31,11 +31,10 @@ CREATE TABLE role_permission (
 -- ============================ //  
 CREATE TABLE users(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    full_name VARCHAR(100) NOT NULL,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    image VARCHAR(250) DEFAULT NULL,
-    phone_Number VARCHAR(100) UNIQUE NOT NULL,
     role_id INT NOT NULL,
     is_deleted TINYINT DEFAULT 0,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -10,11 +10,15 @@ require("./models/db");
 const roleRouter = require("./routers/roles");
 const loginRouter = require("./routers/login");
 const registerRouter = require("./routers/register");
+const mailRouter = require("./routers/mail");
+
 
 // add endpoint to the routers
 app.use("/roles", roleRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
+app.use("/mail", mailRouter);
+
 
 app.listen(PORT, () => {
   console.log("Server working on PORT " + PORT);

@@ -7,17 +7,12 @@ const SECRET = process.env.SALT;
 // This function to register(new user) .
 const register = async (req, res) => {
   try {
-    const { full_name, email, password, image, phone_Number } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     const role_id = 1;
     const hashingPass = await bcrypt.hash(password, 7);
 
-    const query = `INSERT INTO users (full_name,
-      email,
-      password,
-      image,
-      phone_Number,
-      role_id) VALUES (?,?,?,?,?,?)`;
-    const data = [full_name, email, hashingPass, image, phone_Number, role_id];
+    const query = `INSERT INTO users (firstName, lastName, email, password, role_id) VALUES (?,?,?,?,?)`;
+    const data = [firstName, lastName, email, password, role_id];
     const result = await connection.promise().query(query, data);
     if (result[0]) {
       res.status(200).json({
