@@ -1,8 +1,12 @@
 const nodemailer = require("nodemailer");
-const hbs = require("nodemailer-express-handlebars");
+// const hbs = require("nodemailer-express-handlebars");
 const sendEmail = async (req, res) => {
   try {
-    const { email, subject, code } = req.body;
+    let code = Math.floor(Math.random() * 1000000);
+    code = code.toString();
+    // let code = 0000
+
+    const { email } = req.body;
     const senderAuth = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -10,18 +14,17 @@ const sendEmail = async (req, res) => {
         pass: "f q m y a m c n q a r g o o b x",
       },
     });
-    senderAuth.use(
-      "compile",
-      hbs({
-        viewEngine: "express-handlebars",
-        viewPath: "views",
-      })
-    );
+    // senderAuth.use(
+    //   "compile",
+    //   hbs({
+    //     viewEngine: "express-handlebars",
+    //     viewPath: "views",
+    //   })
+    // );
 
     const options = {
       from: "chopa1939@gmail.com",
       to: email,
-      subject: subject,
       html: `<html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -68,14 +71,11 @@ const sendEmail = async (req, res) => {
     </html>
     `,
       text: code,
-      context: {
-        name: "Name",
-      },
     };
 
     const result = await senderAuth.sendMail(options);
     if (result) {
-      res.status(409).json({
+      res.status(200).json({
         success: true,
         message: `code sended to the email: ${email}`,
         code: code,

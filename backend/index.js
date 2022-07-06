@@ -17,7 +17,7 @@ const mailRouter = require("./routers/mail");
 app.use("/roles", roleRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
-app.use("/mail", mailRouter);
+app.use("/email", mailRouter);
 
 
 app.listen(PORT, () => {
