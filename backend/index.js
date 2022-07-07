@@ -11,6 +11,8 @@ const roleRouter = require("./routers/roles");
 const loginRouter = require("./routers/login");
 const registerRouter = require("./routers/register");
 const mailRouter = require("./routers/mail");
+const userRouter = require("./routers/userInfo");
+
 
 
 // add endpoint to the routers
@@ -18,6 +20,8 @@ app.use("/roles", roleRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/email", mailRouter);
+app.use("/users", userRouter);
+
 
 
 app.listen(PORT, () => {

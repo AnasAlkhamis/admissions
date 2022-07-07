@@ -12,7 +12,7 @@ const register = async (req, res) => {
     const hashingPass = await bcrypt.hash(password, 7);
 
     const query = `INSERT INTO users (firstName, lastName, email, password, role_id) VALUES (?,?,?,?,?)`;
-    const data = [firstName, lastName, email, password, role_id];
+    const data = [firstName, lastName, email, hashingPass, role_id];
     const result = await connection.promise().query(query, data);
     if (result[0]) {
       res.status(200).json({

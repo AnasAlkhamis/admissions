@@ -33,8 +33,8 @@
 
 .icon {
   font-size: 150px;
-  color: #fff;
-  background-color: rgb(148, 231, 24);
+  color: rgb(148, 231, 24);
+  background-color: #fff;
   border-radius: 50%;
 }
 .inputs {
