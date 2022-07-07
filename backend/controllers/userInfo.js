@@ -19,6 +19,7 @@ const createInfo = async (req, res) => {
       hearAUs,
       knowAboutUs,
     } = req.body;
+    
     const query = `INSERT INTO usersInfo (fullName,phoneNumber,Educational,birthday,about,img,nationality,righTimes,address,scientificSpecialization,hearAUs,knowAboutUs,user_id) VALUE (?,?,?,?,?,?,?,?,?,?,?,?,?)`;
 
     const data = [
@@ -53,4 +54,23 @@ const createInfo = async (req, res) => {
   }
 };
 
-module.exports = { createInfo };
+const getAllUsersInfo = async (req, res) => {
+  try {
+    const query = `SELECT * FROM usersInfo`;
+    const result = await connection.promise().query(query);
+    if (result.length) {
+      return res.status(200).json({
+        success: true,
+        message: `All user info`,
+        result,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `Server Error`,
+      error,
+    });
+  }
+};
+module.exports = { createInfo, getAllUsersInfo };

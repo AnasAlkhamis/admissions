@@ -12,8 +12,7 @@ const loginRouter = require("./routers/login");
 const registerRouter = require("./routers/register");
 const mailRouter = require("./routers/mail");
 const userRouter = require("./routers/userInfo");
-
-
+const noteRouter = require("./routers/note");
 
 // add endpoint to the routers
 app.use("/roles", roleRouter);
@@ -21,8 +20,7 @@ app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/email", mailRouter);
 app.use("/users", userRouter);
-
-
+app.use("/notes", noteRouter);
 
 app.listen(PORT, () => {
   console.log("Server working on PORT " + PORT);

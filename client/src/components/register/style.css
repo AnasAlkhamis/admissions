@@ -14,4 +14,5 @@
 .form_container form input,
 .form_container form button {
   padding: 1rem 0.5rem;
+  color: rgba(0, 0, 0, 0.695);
 }
