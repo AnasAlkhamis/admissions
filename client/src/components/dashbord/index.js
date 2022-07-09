@@ -133,7 +133,7 @@ const Dashbord = () => {
           <Input
             addonBefore={prefixSelector}
             style={{
-              width: "100%",
+              width: "300px",
             }}
           />
         </Form.Item>
@@ -148,7 +148,7 @@ const Dashbord = () => {
           <Rate />
         </Form.Item>
         <Form.Item
-          name="About"
+          name="About MERAKI"
           label=" what do you know About Us"
           rules={[
             {
