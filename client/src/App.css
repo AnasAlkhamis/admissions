@@ -9,3 +9,4 @@ body {
 html {
   font-size: 18px;
 }
+@import '~antd/dist/antd.css';
