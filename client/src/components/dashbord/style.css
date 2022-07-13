@@ -14,11 +14,11 @@
   margin: 0 auto;
   background-color: antiquewhite;
 }
-.form_container {
+/* .form_container {
   width: 70%;
   background-color: aqua;
   margin: 0 auto;
-}
+} */
 .form_box {
   padding: 1rem 0.5rem;
   overflow-y: scroll;
@@ -27,9 +27,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /*Firefox*/
 }
-.form_container .form_box input {
+/* .form_container .form_box input {
   width: 100%;
-}
+} */
 .form_box textarea {
   padding: 50px 0;
   -ms-overflow-style: none; /* IE and Edge */

@@ -5,7 +5,6 @@ const sendEmail = async (req, res) => {
     let code = Math.floor(Math.random() * 1000000);
     code = code.toString();
     // let code = 0000
-
     const { email } = req.body;
     const senderAuth = nodemailer.createTransport({
       service: "gmail",
@@ -21,7 +20,6 @@ const sendEmail = async (req, res) => {
     //     viewPath: "views",
     //   })
     // );
-
     const options = {
       from: "chopa1939@gmail.com",
       to: email,
@@ -75,7 +73,7 @@ const sendEmail = async (req, res) => {
 
     const result = await senderAuth.sendMail(options);
     if (result) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: `code sended to the email: ${email}`,
         code: code,
